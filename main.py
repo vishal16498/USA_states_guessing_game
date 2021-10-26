@@ -25,11 +25,7 @@ while game_on:
         text_turtle.write(arg=f"{user_input.title()}", align="Center", font=("Arial", 8, "normal"))
     if score == 50 or user_input == "Exit":
         break
-
-missed_states = []
-for each in states_list:
-    if each not in guessed_states:
-        missed_states.append(each)
+missed_states = [each for each in states_list if each not in guessed_states]
 print(missed_states)
 missing_states = pandas.DataFrame(missed_states)
 missing_states.to_csv("states_to_practice.csv")
